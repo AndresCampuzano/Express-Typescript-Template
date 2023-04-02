@@ -9,5 +9,3 @@ This is a template for creating a new Express project using Typescript.
 3. Run `npm run dev` to start the development server
 4. Run `npm run build` to build the project
 5. Run `npm start` to start the production server
-
-TEST 3 from develop
