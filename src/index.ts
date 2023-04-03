@@ -11,5 +11,6 @@ const PORT = 3000;
 app.use('/api/diaries', diariesRouter);
 
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  // eslint-disable-next-line no-console
+  console.log(`🤖 Server is running on port: ${PORT}`);
 });
