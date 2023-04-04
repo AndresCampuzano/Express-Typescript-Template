@@ -23,9 +23,7 @@
     // All prettier rules will be flagged as errors (2)
     "prettier/prettier": 2,
     // Don't allow any type
-    "@typescript-eslint/no-explicit-any": 2,
-    // Don't allow null return functions
-    "@typescript-eslint/explicit-module-boundary-types": 2,
+    "@typescript-eslint/no-explicit-any": 2
   }
 }
 

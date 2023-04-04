@@ -37,7 +37,8 @@
     // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
     // "allowUmdGlobalAccess": true,                     /* Allow accessing UMD globals from modules. */
     // "moduleSuffixes": [],                             /* List of file name suffixes to search when resolving a module. */
-    // "allowImportingTsExtensions": true,               /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */
+    /* Allow imports to include TypeScript file extensions. Requires '--moduleResolution bundler' and either '--noEmit' or '--emitDeclarationOnly' to be set. */
+    "allowImportingTsExtensions": false,
     // "resolvePackageJsonExports": true,                /* Use the package.json 'exports' field when resolving package imports. */
     // "resolvePackageJsonImports": true,                /* Use the package.json 'imports' field when resolving imports. */
     // "customConditions": [],                           /* Conditions to set in addition to the resolver-specific defaults when resolving imports. */
@@ -62,7 +63,7 @@
     "outDir": "./build",
     // "removeComments": true,                           /* Disable emitting comments. */
     // "noEmit": true,                                   /* Disable emitting files from a compilation. */
-    // "importHelpers": true,                            /* Allow importing helpers functions from tslib once per project, instead of including them per-file. */
+    // "importHelpers": true,                            /* Allow importing utils functions from tslib once per project, instead of including them per-file. */
     // "importsNotUsedAsValues": "remove",               /* Specify emit/checking behavior for imports that are only used for types. */
     // "downlevelIteration": true,                       /* Emit more compliant, but verbose and less performant JavaScript for iteration. */
     // "sourceRoot": "",                                 /* Specify the root path for debuggers to find the reference source code. */
@@ -71,7 +72,7 @@
     // "emitBOM": true,                                  /* Emit a UTF-8 Byte Order Mark (BOM) in the beginning of output files. */
     // "newLine": "crlf",                                /* Set the newline character for emitting files. */
     // "stripInternal": true,                            /* Disable emitting declarations that have '@internal' in their JSDoc comments. */
-    // "noEmitHelpers": true,                            /* Disable generating custom helpers functions like '__extends' in compiled output. */
+    // "noEmitHelpers": true,                            /* Disable generating custom utils functions like '__extends' in compiled output. */
     // "noEmitOnError": true,                            /* Disable emitting files if any type checking errors are reported. */
     // "preserveConstEnums": true,                       /* Disable erasing 'const enum' declarations in generated code. */
     // "declarationDir": "./",                           /* Specify the output directory for generated declaration files. */
@@ -84,9 +85,8 @@
     /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
     "esModuleInterop": true,
     // "preserveSymlinks": true,                         /* Disable resolving symlinks to their realpath. This correlates to the same flag in node. */
-    "forceConsistentCasingInFileNames": true,
     /* Ensure that casing is correct in imports. */
-
+    "forceConsistentCasingInFileNames": true,
     /* Type Checking */
     /* Enable all strict type-checking options. */
     "strict": true,
@@ -103,8 +103,8 @@
     /* Raise an error when a function parameter isn't read. */
     "noUnusedParameters": true,
     // "exactOptionalPropertyTypes": true,               /* Interpret optional property types as written, rather than adding 'undefined'. */
-    "noImplicitReturns": true,
     /* Enable error reporting for codepaths that do not explicitly return in a function. */
+    "noImplicitReturns": true,
     /* Enable error reporting for fallthrough cases in switch statements. */
     "noFallthroughCasesInSwitch": true,
     // "noUncheckedIndexedAccess": true,                 /* Add 'undefined' to a type when accessed using an index. */
