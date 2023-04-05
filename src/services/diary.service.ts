@@ -1,4 +1,4 @@
-import { ObjectId, WithId } from 'mongodb';
+import { InsertOneResult, ObjectId, WithId } from 'mongodb';
 import { removeSensitiveData } from '../utils/removeSensitiveData';
 import { collections } from '../database/collections';
 import { DiaryEntry, NonSensitiveDiaryEntry } from '../types';
@@ -46,6 +46,9 @@ export const getNonSensitiveEntries = async (): Promise<
 /**
  * Adds a new diary entry
  */
-export const addEntry = (): undefined => {
-  return undefined;
+export const addEntry = async (
+  diary: DiaryEntry
+): Promise<InsertOneResult<DiaryEntry> | undefined> => {
+  const result = await collections.diariesCollection?.insertOne(diary);
+  return result;
 };
