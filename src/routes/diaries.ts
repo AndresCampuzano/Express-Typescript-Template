@@ -33,4 +33,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+/**
+ * POST /api/diaries - Adds a new diary entry
+ */
+router.post('/', async (req, res) => {
+  try {
+    const newDiaryEntry = await diariesServices.addEntry(req.body);
+    res.send(newDiaryEntry).status(201);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    res.status(500).send(error.message);
+  }
+});
+
 export default router;
