@@ -1,7 +1,8 @@
 import { InsertOneResult, ObjectId, WithId } from 'mongodb';
 import { removeSensitiveData } from '../utils/removeSensitiveData';
-import { collections } from '../database/collections';
+import { collections } from '../mongo/collections';
 import { DiaryEntry, NonSensitiveDiaryEntry } from '../types';
+import { uploadImage } from '../aws/uploadImage';
 
 /**
  * Returns all diaries
@@ -47,8 +48,20 @@ export const getNonSensitiveEntries = async (): Promise<
  * Adds a new diary entry
  */
 export const addEntry = async (
-  diary: DiaryEntry
+  body: DiaryEntry,
+  file: Express.Multer.File | undefined
 ): Promise<InsertOneResult<DiaryEntry> | undefined> => {
-  const result = await collections.diariesCollection?.insertOne(diary);
-  return result;
+  try {
+    if (file) {
+      const imageUrl = await uploadImage(file);
+      return await collections.diariesCollection?.insertOne({
+        ...body,
+        avatar: imageUrl
+      });
+    } else {
+      return await collections.diariesCollection?.insertOne(body);
+    }
+  } catch (error) {
+    throw new Error('Error adding a new diary entry ' + error);
+  }
 };
