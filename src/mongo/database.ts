@@ -2,7 +2,7 @@ import * as mongoDB from 'mongodb';
 import { collections } from './collections';
 
 /**
- * Connects to the database and sets the collections object
+ * Connects to the mongo and sets the collections object
  */
 export async function connectToDatabase() {
   const client: mongoDB.MongoClient = new mongoDB.MongoClient(
