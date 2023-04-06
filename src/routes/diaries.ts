@@ -1,5 +1,6 @@
 import express from 'express';
 import * as diariesServices from '../services/diary.service';
+import { multerUpload } from '../multer/multer';
 
 const router = express.Router();
 
@@ -34,12 +35,14 @@ router.get('/:id', async (req, res) => {
 });
 
 /**
- * POST /api/diaries - Adds a new diary entry
+ * POST /api/diaries/ - Adds a new diary entry with an optional avatar
+ * 'req.file' is the `avatar` file
+ * 'req.body' will hold the text fields, if there were any
  */
-router.post('/', async (req, res) => {
+router.post('/', multerUpload.single('avatar'), async (req, res) => {
   try {
-    const newDiaryEntry = await diariesServices.addEntry(req.body);
-    res.send(newDiaryEntry).status(201);
+    const result = await diariesServices.addEntry(req.body, req.file);
+    res.send(result).status(201);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     res.status(500).send(error.message);

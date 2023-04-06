@@ -7,6 +7,7 @@ export interface DiaryEntry {
   weather: Weather;
   visibility: Visibility;
   comment: string;
+  avatar?: string;
 }
 
 export type NonSensitiveDiaryEntry = Omit<DiaryEntry, 'comment'>;

@@ -1,6 +1,6 @@
 import express from 'express';
 import diariesRouter from './routes/diaries';
-import { connectToDatabase } from './database/database';
+import { connectToDatabase } from './mongo/database';
 import dotenv from 'dotenv';
 
 dotenv.config();
